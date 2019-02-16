@@ -46,3 +46,31 @@ where titre="les bases de données"
 and Livre.NoEditeur=Editeur.NoEditeur 
 and Livre.ID_livre =Ecritpar.ID_livre
 and Auteurs.NoAuteur = Ecritpar.NoAuteur;
+
+alter table Livre
+add column prix int;
+
+alter table Livre
+add column TVA float;
+
+select (prix * 0.21) as TVA,titre
+from Livre
+where Nbr_exemplaire>10;
+
+select count(*)
+from Livre
+where titre="les bases de données";
+
+select * 
+from Livre
+group by NoEditeur;
+
+delete from Editeur
+where NoEditeur = 4;
+
+delete from Auteurs
+where NoAuteur = 4;
+
+select *
+from Auteurs
+order by (Nom_auteur);
